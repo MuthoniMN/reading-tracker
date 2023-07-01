@@ -44,7 +44,7 @@ function displayLists(arr, dest) {
       });
   })
 }
-if (localStorage.getItem('tbr').indexOf(',') !== -1) {
+if (localStorage.getItem('tbr').length !== 1) {
   const tbrList =  localStorage.getItem('tbr').split(',')
   displayLists(tbrList, "#tbr")
 } else {
