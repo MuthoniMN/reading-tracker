@@ -1,37 +1,87 @@
-// document.querySelector("#start").addEventListener('click', () => {
-//     document.querySelector("span").innerText =     document.querySelector("#name").value
+document.querySelector("#start").addEventListener('click', () => {
+    document.querySelector("span").innerText =     document.querySelector("#name").value
 
-//     document.querySelector("form").classList.add("noDisp")
-//     document.querySelector("section").classList.remove("noDisp")
-// })
+    document.querySelector("form").classList.add("noDisp")
+    document.querySelector("section").classList.remove("noDisp")
+})
+
+function displayLists(arr, dest) {
+
+  arr.forEach((book) => {
+    const [isbn, title] = book.split(": ")
+    let tr = document.createElement('tr')
+
+
+    const url = `https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&format=json`
+
+    fetch(url)
+      .then(res => res.json()) // parse response as JSON
+      .then(data => {
+
+        let td1 = document.createElement('td')
+        let cover = document.createElement("img")
+        cover.src = data[`ISBN:${isbn}`].thumbnail_url
+        td1.appendChild(cover)
+
+        let td2 = document.createElement('td')
+        td2.textContent = title
+
+        let td3 = document.createElement('td')
+        let link = document.createElement('a')
+        link.href = data[`ISBN:${isbn}`].preview_url
+        link.textContent = title + " Preview"
+        td3.appendChild(link)
+
+        tr.appendChild(td1)
+        tr.appendChild(td2)
+        tr.appendChild(td3)
+
+        document.querySelector(dest).appendChild(tr)
+      })
+      .catch(err => {
+        console.log(`error ${err}`)
+      });
+  })
+}
+const tbrList = localStorage.getItem('tbr').indexOf(',') ? localStorage.getItem('tbr').split(',') : [].push(localStorage.getItem('tbr'))
+displayLists(tbrList, "#tbr")
+
+const readList = localStorage.getItem('read').indexOf(',') ? localStorage.getItem('read').split(',') : [].push(localStorage.getItem('tbr'))
+displayLists(readList, "#readList")
 
 // 0201558025
 document.querySelector('#add').addEventListener('click', getFetch)
-const tbr = []
 const read = []
 
-function getFetch(){
+function getFetch() {
   const choice = document.querySelector('#book').value
   const status = document.querySelector('select').value
-  console.log(choice)
   const url = `https://openlibrary.org/isbn/${choice}.json`
 
   fetch(url)
-      .then(res => res.json()) // parse response as JSON
-      .then(data => {
-        console.log(data)
-        const book = `${choice}: ${data.title}`
+    .then(res => res.json()) // parse response as JSON
+    .then(data => {
+      const book = `${choice}: ${data.title}`
 
-        if(status === "Not Started"){
-          tbr.push(book)
-          localStorage.setItem('tbr', tbr)
-
-        }else{
-          read.push(book)
-          localStorage.setItem('read', read)
+      if (status === "Not Started") {
+        if (!localStorage.getItem('tbr')) {
+          localStorage.setItem('tbr', book)
+        } else {
+          let newBook = localStorage.getItem('tbr') + "," + book
+          localStorage.setItem('tbr', newBook)
         }
-      })
-      .catch(err => {
-          console.log(`error ${err}`)
-      });
+        displayLists(tbrList, "#tbr")
+      } else {
+        if (!localStorage.getItem('read')) {
+          localStorage.setItem('read', book)
+        } else {
+          let newBook = localStorage.getItem('read') + "," + book
+          localStorage.setItem('read', newBook)
+        }
+        displayLists(readList, "#readList")
+      }
+    })
+    .catch(err => {
+      console.log(`error ${err}`)
+    });
 }
