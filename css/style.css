@@ -41,6 +41,21 @@ button{
 
 label{
     display: block;
+    margin-bottom: 5px;
+}
+
+input{
+    padding: 5px;
+}
+
+select{
+    width: 45%;
+    padding: 5px;
+}
+
+select + button{
+    display: block;
+    margin: 12px auto;
 }
 
 table{

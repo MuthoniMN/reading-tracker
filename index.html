@@ -10,16 +10,20 @@
     <body>
         <h1>ReadIt: A Book Tracker</h1>
 
-        <form id="getName">
+        <form id="getName"  class="noDisp">
             <label for="name">Please enter your name to get started</label>
             <input type="text" id="name" placeholder="eg. John Doe">
             <button id="start">Start</button>
         </form>
 
-        <section class="noDisp">
+        <section>
             <h2>Hey, <span></span></h2>
             <label for="book">Enter the Book's ISBN: </label>
             <input type="text" id="book" placeholder="eg. 9887654321">
+            <select>
+                <option>Not Started</option>
+                <option>Finished</option>
+            </select>
             <button id="add">Add Book</button>
             <h3>TBR List</h3>
             <p>These are books that you have not read yet</p>
@@ -27,7 +31,7 @@
                 <tr>
                     <th>Book Cover</th>
                     <th>Book Title</th>
-                    <th>Status</th>
+                    <th>Preview</th>
                 </tr>
             </table>
             
@@ -37,7 +41,7 @@
                 <tr>
                     <th>Book Cover</th>
                     <th>Book Title</th>
-                    <th>Status</th>
+                    <th>Preview</th>
                 </tr>
             </table>
         </section>
