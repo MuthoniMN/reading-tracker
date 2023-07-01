@@ -2,8 +2,12 @@ body{
     font-family: 'Arial Narrow', Arial, sans-serif;
 }
 
+h1{
+    text-align: center;
+}
+
 h1, h2, h3{
-    font-family:fantasy;
+    font-family:cursive;
 }
 
 p{
@@ -22,7 +26,7 @@ form{
     justify-content: center;
 }
 
-section{
+.noDisp{
     display: none;
 }
 

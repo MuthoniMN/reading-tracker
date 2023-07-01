@@ -13,14 +13,14 @@
         <form id="getName">
             <label for="name">Please enter your name to get started</label>
             <input type="text" id="name" placeholder="eg. John Doe">
-            <button>Start</button>
+            <button id="start">Start</button>
         </form>
 
-        <section id="lists">
+        <section class="noDisp">
             <h2>Hey, <span></span></h2>
             <label for="book">Enter the Book's ISBN: </label>
-            <input type="text" id="book">
-            <button>Add Book</button>
+            <input type="text" id="book" placeholder="eg. 9887654321">
+            <button id="add">Add Book</button>
             <h3>TBR List</h3>
             <p>These are books that you have not read yet</p>
             <table id="tbr">
@@ -41,5 +41,7 @@
                 </tr>
             </table>
         </section>
+
+        <script src="js/main.js"></script>
     </body>
 </html>
