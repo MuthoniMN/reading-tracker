@@ -44,7 +44,7 @@ function displayLists(arr, dest) {
       });
   })
 }
-if (localStorage.getItem('tbr').length !== 1) {
+if (localStorage.getItem('tbr').includes(",")) {
   const tbrList =  localStorage.getItem('tbr').split(',')
   displayLists(tbrList, "#tbr")
 } else {
@@ -77,7 +77,6 @@ function getFetch() {
           let newBook = localStorage.getItem('tbr') + "," + book
           localStorage.setItem('tbr', newBook)
         }
-        displayLists(tbrList, "#tbr")
       } else {
         if (!localStorage.getItem('read')) {
           localStorage.setItem('read', book)
@@ -85,7 +84,6 @@ function getFetch() {
           let newBook = localStorage.getItem('read') + "," + book
           localStorage.setItem('read', newBook)
         }
-        displayLists(readList, "#readList")
       }
     })
     .catch(err => {
