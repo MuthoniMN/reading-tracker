@@ -44,8 +44,14 @@ function displayLists(arr, dest) {
       });
   })
 }
-const tbrList = localStorage.getItem('tbr').indexOf(',') ? localStorage.getItem('tbr').split(',') : [].push(localStorage.getItem('tbr'))
-displayLists(tbrList, "#tbr")
+if (localStorage.getItem('tbr').indexOf(',') !== -1) {
+  const tbrList =  localStorage.getItem('tbr').split(',')
+  displayLists(tbrList, "#tbr")
+} else {
+  const tbrList =  []
+  tbrList.push(localStorage.getItem('tbr'))
+  displayLists(tbrList, "#tbr")
+}
 
 const readList = localStorage.getItem('read').indexOf(',') ? localStorage.getItem('read').split(',') : [].push(localStorage.getItem('tbr'))
 displayLists(readList, "#readList")
