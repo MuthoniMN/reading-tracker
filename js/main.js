@@ -1,9 +1,10 @@
-document.querySelector("#start").addEventListener('click', () => {
-  document.querySelector("form").classList.add("noDisp")
-  document.querySelector("section").classList.remove("noDisp")
-  document.querySelector("span").innerText = document.querySelector("#name").value
+document.querySelector("button").addEventListener('click', hideSignUp)
 
-})
+function hideSignUp() {
+  document.querySelector("section").classList.remove("noDisp")
+  document.querySelector("div").classList.add("noDisp")
+  document.querySelector("span").innerText = document.querySelector("#name").value
+}
 
 function displayLists(arr, dest) {
 
