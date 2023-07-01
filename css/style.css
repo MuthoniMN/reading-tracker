@@ -1,0 +1,55 @@
+body{
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+h1, h2, h3{
+    font-family:fantasy;
+}
+
+p{
+    opacity: .5;
+}
+
+form{
+    width: 50%;
+    min-width: 300px;
+    height: 75vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+}
+
+section{
+    display: none;
+}
+
+button{
+    background: cadetblue;
+    color: whitesmoke;
+    border: none;
+    padding: 7px 24px;
+    box-shadow: 1px 2px 2px 1px #0000004b;
+    cursor: pointer;
+}
+
+label{
+    display: block;
+}
+
+table{
+    width: 100%;
+}
+
+tr > *{
+    width: 33.3333%;
+    margin: 0;
+}
+
+th{
+    background: cadetblue;
+    border: 1px solid darkslateblue;
+    color: whitesmoke;
+}
