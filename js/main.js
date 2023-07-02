@@ -57,12 +57,12 @@ if (localStorage.getItem('tbr')) {
 
 if (localStorage.getItem('read')) {
   if(localStorage.getItem('read').includes(",")){
-    const tbrList =  localStorage.getItem('read').split(',')
-    displayLists(tbrList, "#tbr")
+    const readList =  localStorage.getItem('read').split(',')
+    displayLists(readList, "#readList")
   }else{
-  const tbrList =  []
-  tbrList.push(localStorage.getItem('read'))
-  displayLists(tbrList, "#tbr")
+  const readList =  []
+  readList.push(localStorage.getItem('read'))
+  displayLists(readList, "#readList")
   }
 } 
 
