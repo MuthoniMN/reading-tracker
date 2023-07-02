@@ -53,10 +53,18 @@ if (localStorage.getItem('tbr')) {
   tbrList.push(localStorage.getItem('tbr'))
   displayLists(tbrList, "#tbr")
   }
-}  
+} 
 
-const readList = localStorage.getItem('read').indexOf(',') ? localStorage.getItem('read').split(',') : [].push(localStorage.getItem('tbr'))
-displayLists(readList, "#readList")
+if (localStorage.getItem('read')) {
+  if(localStorage.getItem('read').includes(",")){
+    const tbrList =  localStorage.getItem('read').split(',')
+    displayLists(tbrList, "#tbr")
+  }else{
+  const tbrList =  []
+  tbrList.push(localStorage.getItem('read'))
+  displayLists(tbrList, "#tbr")
+  }
+} 
 
 // 0201558025
 document.querySelector('#add').addEventListener('click', getFetch)
