@@ -45,13 +45,15 @@ function displayLists(arr, dest) {
   })
 }
 if (localStorage.getItem('tbr')) {
+  if(localStorage.getItem('tbr').includes(",")){
+    const tbrList =  localStorage.getItem('tbr').split(',')
+    displayLists(tbrList, "#tbr")
+  }else{
   const tbrList =  []
   tbrList.push(localStorage.getItem('tbr'))
   displayLists(tbrList, "#tbr")
-} else if(localStorage.getItem('tbr').includes(",")){
-  const tbrList =  localStorage.getItem('tbr').split(',')
-  displayLists(tbrList, "#tbr")
-}
+  }
+}  
 
 const readList = localStorage.getItem('read').indexOf(',') ? localStorage.getItem('read').split(',') : [].push(localStorage.getItem('tbr'))
 displayLists(readList, "#readList")
