@@ -44,7 +44,7 @@ function displayLists(arr, dest) {
       });
   })
 }
-if (localStorage.getItem('tbr').includes(",")) {
+if (localStorage.getItem('tbr') && localStorage.getItem('tbr').includes(",")) {
   const tbrList =  localStorage.getItem('tbr').split(',')
   displayLists(tbrList, "#tbr")
 } else {
