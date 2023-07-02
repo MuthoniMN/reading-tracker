@@ -44,12 +44,12 @@ function displayLists(arr, dest) {
       });
   })
 }
-if (localStorage.getItem('tbr') && localStorage.getItem('tbr').includes(",")) {
-  const tbrList =  localStorage.getItem('tbr').split(',')
-  displayLists(tbrList, "#tbr")
-} else {
+if (localStorage.getItem('tbr')) {
   const tbrList =  []
   tbrList.push(localStorage.getItem('tbr'))
+  displayLists(tbrList, "#tbr")
+} else if(localStorage.getItem('tbr').includes(",")){
+  const tbrList =  localStorage.getItem('tbr').split(',')
   displayLists(tbrList, "#tbr")
 }
 
