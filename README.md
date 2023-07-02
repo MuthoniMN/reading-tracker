@@ -13,7 +13,7 @@ Based on the status, the book is added to the To-Be-Read list or the already rea
 On refresh the book is added to either tables
 
 ## ✍Extra Information
-ReadIt gets a book's information from the [Open Library API]("https://openlibrary.org")
+ReadIt gets a book's information from the [Open Library API](https://openlibrary.org)
 
 ## Improvements
 - save the user's name
