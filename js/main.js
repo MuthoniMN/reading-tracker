@@ -79,6 +79,8 @@ function getFetch() {
     .then(res => res.json()) // parse response as JSON
     .then(data => {
       const book = `${choice}: ${data.title}`
+      
+      window.location.reload()
 
       if (status === "Not Started") {
         if (!localStorage.getItem('tbr')) {
